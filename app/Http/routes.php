@@ -21,3 +21,7 @@ Route::get('productos', 'ProductosController@index');
 Route::get('productos/{producto}', 'ProductosController@getProducto');
 Route::post('productos', 'ProductosController@createProducto');
 Route::delete('productos/{producto}', 'ProductosController@deleteProducto');
+Route::put('productos/{producto}', 'ProductosController@updateProducto');
+
+//Tienda
+Route::get('tienda/getDestacados', 'TiendaController@getDestacados');

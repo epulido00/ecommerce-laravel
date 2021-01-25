@@ -29,4 +29,10 @@ class ProductosController extends Controller
 
     	return response()->json(null, 204);
     }
+
+    public function updateProducto(Productos $producto, Request $request) {
+        $producto->update($request->all());
+
+        return response()->json($producto->all(), 200);
+    }  
 }

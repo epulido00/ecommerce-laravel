@@ -46,6 +46,8 @@ class LoginController extends Controller
     		$user->save();
     	}
 
+        Auth::logout();
+
     	return response()->json(["response" => "User Logged out."], 200);
 
     }
