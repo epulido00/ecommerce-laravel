@@ -14,14 +14,19 @@ use Auth;
 class LoginController extends Controller
 {
     //
+    public function index() {
+        return User::all();
+    }
 
     public function registro(Request $request) {
-    	return User::create([
+    	User::create([
     		'nombre' => $request->nombre,
     		'apellido' => $request->apellido,
     		'email' => $request->email,
     		'password' => Hash::make($request->password),
     	]);
+
+        return $this->ingresar($request);
     }
 
     public function ingresar(Request $request) {

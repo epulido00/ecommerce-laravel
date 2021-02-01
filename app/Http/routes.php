@@ -11,17 +11,24 @@
 |
 */
 
+
 //Login
-Route::get('login', 'LoginController@index');
-Route::post('login/registro', 'LoginController@registro');
-Route::post('login/ingreso', 'LoginController@ingresar');
+Route::group(['middleware' => ['cors']], function() {
 
-//Productos
-Route::get('productos', 'ProductosController@index');
-Route::get('productos/{producto}', 'ProductosController@getProducto');
-Route::post('productos', 'ProductosController@createProducto');
-Route::delete('productos/{producto}', 'ProductosController@deleteProducto');
-Route::put('productos/{producto}', 'ProductosController@updateProducto');
+	Route::get('login', 'LoginController@index');
+	Route::post('login/registro', 'LoginController@registro');
+	Route::post('login/ingreso', 'LoginController@ingresar');
+	Route::get('login/logout', 'LoginController@logout');
 
-//Tienda
-Route::get('tienda/getDestacados', 'TiendaController@getDestacados');
+	//Productos esto será para el admin
+	Route::get('productos', 'ProductosController@index');
+	Route::get('productos/{producto}', 'ProductosController@getProducto');
+	Route::post('productos', 'ProductosController@createProducto');
+	Route::delete('productos/{producto}', 'ProductosController@deleteProducto');
+	Route::put('productos/{producto}', 'ProductosController@updateProducto');
+
+	//Tienda
+	Route::get('tienda/get-destacados', 'TiendaController@getDestacados');	
+	Route::get('tienda/get-producto/{producto}', 'TiendaController@getProducto');	
+});
+

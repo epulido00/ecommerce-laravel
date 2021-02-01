@@ -17,4 +17,8 @@ class TiendaController extends Controller
 
     	return $destacados;
     }
+
+    public function getProducto(Productos $producto) {
+    	return $producto;
+    }
 }
