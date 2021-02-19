@@ -11,13 +11,12 @@
 |
 */
 
-
 //Login
 Route::group(['middleware' => ['cors']], function() {
 
 	Route::get('login', 'LoginController@index');
-	Route::post('login/registro', 'LoginController@registro');
-	Route::post('login/ingreso', 'LoginController@ingresar');
+	Route::post('login/registrarse', 'LoginController@registro');
+	Route::post('login/ingresar', 'LoginController@ingresar');
 	Route::get('login/logout', 'LoginController@logout');
 
 	//Productos esto será para el admin
@@ -31,4 +30,6 @@ Route::group(['middleware' => ['cors']], function() {
 	Route::get('tienda/get-destacados', 'TiendaController@getDestacados');	
 	Route::get('tienda/get-producto/{producto}', 'TiendaController@getProducto');	
 });
+
+Route::get('login/test', 'LoginController@test');
 

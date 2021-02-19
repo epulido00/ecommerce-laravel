@@ -56,4 +56,9 @@ class LoginController extends Controller
     	return response()->json(["response" => "User Logged out."], 200);
 
     }
+
+    public function test() {
+        echo $this->user->nombre;
+        return view('welcome');
+    }
 }
